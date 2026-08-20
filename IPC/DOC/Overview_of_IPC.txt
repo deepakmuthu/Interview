@@ -1,0 +1,23 @@
+IPC concept Suppoted API and its usages:
+=========================
+
+
+PIPE:
+===
+
+
+NAMEDPIPE or FIFO:
+============
+
+
+
+SHARED_MEMORY:
+============
+
+	-> shm_openSHM_NAME, O_RDONLY, 0666) - 
+	-> ftruncate(shm_fd, sizeof(SensorData) -
+The mmap() function maps a file or a shared memory object directly into a process's virtual address space.Here is the purpose of each argument in your code:nullptr (Address)Purpose: Tells the operating system to choose the memory address where the mapping starts.Detail: Passing nullptr (or NULL) is the standard choice. It lets the kernel find the most efficient available space in virtual memory.sizeof(SensorData) (Length)Purpose: Specifies the size of the memory mapping in bytes.Detail: This ensures the mapped region is exactly large enough to hold one SensorData structure. The kernel usually rounds this up to the nearest system page size (typically 4KB).PROT_READ | PROT_WRITE (Protection Flags)Purpose: Sets the memory access permissions for the mapped region.Detail: The bitwise OR (|) combines two permissions:PROT_READ: Allows the process to read data from this memory block.PROT_WRITE: Allows the process to write data to this memory block.MAP_SHARED (Mapping Flags)Purpose: Determines how updates to the memory region are shared and saved.Detail: MAP_SHARED means any changes made to this memory are visible to other processes mapping the same object. It also writes the changes back to the underlying shared memory file descriptor (shm_fd).shm_fd (File Descriptor)Purpose: Identifies the specific file or shared memory object to map.Detail: This is the file descriptor returned by a previous call to shm_open() or open(). It acts as the source backing the memory region.0 (Offset)Purpose: Sets the starting point inside the file or shared memory object where the mapping begins.Detail: Passing 0 means the mapping starts at the very beginning (byte 0) of the shared memory file. If a non-zero offset is used, it must be a multiple of the system page size.	
+	-> mmap(nullptr, sizeof(SensorData), PROT_READ,MAP_SHARED, shm_fd,0) - 
+	-> munmap(data, sizeof(SensorData)) - 
+	-> close(shm_fd) - 
+	

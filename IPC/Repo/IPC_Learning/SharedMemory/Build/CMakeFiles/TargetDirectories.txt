@@ -1,0 +1,4 @@
+/home/deepakm/Documents/Interview/Programming/IPC/Repo/IPC_Learning/SharedMemory/Build/CMakeFiles/writer.dir
+/home/deepakm/Documents/Interview/Programming/IPC/Repo/IPC_Learning/SharedMemory/Build/CMakeFiles/reader.dir
+/home/deepakm/Documents/Interview/Programming/IPC/Repo/IPC_Learning/SharedMemory/Build/CMakeFiles/edit_cache.dir
+/home/deepakm/Documents/Interview/Programming/IPC/Repo/IPC_Learning/SharedMemory/Build/CMakeFiles/rebuild_cache.dir

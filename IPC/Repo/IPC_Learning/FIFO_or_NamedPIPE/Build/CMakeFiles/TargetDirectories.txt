@@ -1,0 +1,4 @@
+/home/deepakm/Documents/Interview/Programming/C/IPC/Repo/IPC_Learning/FIFO_or_NamedPIPE/Build/CMakeFiles/Reader.dir
+/home/deepakm/Documents/Interview/Programming/C/IPC/Repo/IPC_Learning/FIFO_or_NamedPIPE/Build/CMakeFiles/Writer.dir
+/home/deepakm/Documents/Interview/Programming/C/IPC/Repo/IPC_Learning/FIFO_or_NamedPIPE/Build/CMakeFiles/edit_cache.dir
+/home/deepakm/Documents/Interview/Programming/C/IPC/Repo/IPC_Learning/FIFO_or_NamedPIPE/Build/CMakeFiles/rebuild_cache.dir
