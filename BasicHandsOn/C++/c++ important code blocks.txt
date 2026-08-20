@@ -1,0 +1,162 @@
+1. Remove the whitespace from the string:
+
+    #include <algorithm>
+    #include <cctype>
+    #include <string>
+
+    std::string ltrim(const std::string& str)
+    {
+        std::string s(str);
+
+        s.erase(
+            s.begin(),
+            //#include <algorithm> required for std::find_if
+            std::find_if(s.begin(), s.end(),
+                [](unsigned char c)
+                {
+                    return !std::isspace(c);
+                })
+        );
+
+        return s;
+    }
+
+
+2. Print the float value with correct precision:
+
+    cout << fixed << setprecision(3) << fFloat << endl;
+    cout << fixed << setprecision(15) << dDouble << endl;
+
+3. StringStream usage example:
+    stringstream in C++ is a stream class used to read data from and write data to a std::string as if the string were a file/stream.
+
+    It is provided by:
+
+        #include <sstream>
+
+    The main classes are:
+
+        Class	                Purpose
+        std::stringstream	Both read and write
+        std::istringstream	Read from a string
+        std::ostringstream	Write to a string
+
+    code:
+        #include <iostream>
+        #include <sstream>
+
+        int main()
+        {
+            int number = 123;
+
+            std::stringstream ss;
+
+            ss << number;
+
+            std::string str = ss.str();
+
+            std::cout << str << "\n";
+        }    
+
+4. Inbuild Functions:
+Function	Checks
+isalpha(c)	Alphabetic character
+isdigit(c)	Digit 0-9
+isalnum(c)	Alphabet OR digit
+isspace(c)	Whitespace
+islower(c)	Lowercase
+isupper(c)	Uppercase
+ispunct(c)	Punctuation
+isxdigit(c)	Hexadecimal digit
+
+5. Find Obsolute value of Two numbers:
+    #include <cmath>
+
+    *b = std::abs (*a - *b);
+
+6. Two dimention vector:
+
+    #include <iostream>
+    #include <vector>
+
+    using namespace std;
+
+    int main()
+    {
+        int n, q;
+        cin >> n >> q;
+
+        vector<vector<int>> arr(n);
+
+        // Read the variable-length arrays
+        for (int i = 0; i < n; i++)
+        {
+            int k;
+            cin >> k;
+
+            for (int j = 0; j < k; j++)
+            {
+                int value;
+                cin >> value;
+
+                arr[i].push_back(value);
+            }
+        }
+
+        // Process queries
+        for (int i = 0; i < q; i++)
+        {
+            int x, y;
+            cin >> x >> y;
+
+            cout << arr[x][y] << endl;
+        }
+
+        return 0;
+    }
+
+7. Template class
+
+    template <class T>
+    class AddElements{
+        private:
+            T m_FirstElement;
+        public:
+            AddElements ( T PassedElement ) : m_FirstElement(PassedElement)
+            {}
+            T add ( T PassedElement )
+            {
+                return m_FirstElement + PassedElement;
+            }
+            T concatenate ( T PassedElement )
+            {
+                return m_FirstElement + PassedElement;
+            }        
+    };
+
+8. Max, Min and infinity
+
+    #include <iostream>
+    #include <limits>
+
+    using namespace std;
+
+    int main ()
+    {
+        cout << "Numeric max of int : " << std::numeric_limits<int>::max() << endl;
+        cout << "numeric min of int : " << std::numeric_limits<int>::min() << endl;
+        cout << "numeric min of int : " << std::numeric_limits<int>::infinity() << endl; // returm is zero. infinity is not valid for int.
+
+        cout << "Numeric max of int : " << std::numeric_limits<double>::max() << endl;
+        cout << "numeric min of int : " << std::numeric_limits<double>::min() << endl;
+        cout << "numeric min of int : " << std::numeric_limits<double>::infinity() << endl; // infinity is only for double and float, not for int
+    }
+
+    output:
+    =======
+        Numeric max of int : 2147483647
+        numeric min of int : -2147483648
+        numeric min of int : 0
+        Numeric max of double : 1.79769e+308
+        numeric min of double : 2.22507e-308
+        numeric min of double : inf    
